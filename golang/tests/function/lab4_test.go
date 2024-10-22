@@ -4,7 +4,7 @@ import (
 	"math"
 	"testing"
 
-	"isuct.ru/informatics2022/function"
+	function "isuct.ru/informatics2022/function"
 )
 
 type Test struct {
@@ -19,16 +19,23 @@ var tests = []Test{
 	{0.24, 0.05, 0.07, 1.633123935319537e+16},
 }
 
-func TestLab4(t *testing.T) {
+func TestCalculateYWithNaN(t *testing.T) {
 	for _, test := range tests {
-		got := function.RunLab4Task(test.x, test.a, test.b)
 		if math.IsNaN(test.out) {
+			got := function.CalculateY(test.x, test.a, test.b)
 			if !math.IsNaN(got) {
-				t.Errorf("F(%f, %f, %f) = %f, want NaN", test.x, test.a, test.b, got)
+				t.Errorf("Test failed for NaN case x=%f, a=%f, b=%f: got %f, want NaN", test.x, test.a, test.b, got)
 			}
-		} else {
+		}
+	}
+}
+
+func TestCalculateYWithoutNaN(t *testing.T) {
+	for _, test := range tests {
+		if !math.IsNaN(test.out) {
+			got := function.CalculateY(test.x, test.a, test.b)
 			if got != test.out {
-				t.Errorf("F(%f, %f, %f) = %f, want %f", test.x, test.a, test.b, got, test.out)
+				t.Errorf("Test failed for x=%f, a=%f, b=%f: got %f, want %f", test.x, test.a, test.b, got, test.out)
 			}
 		}
 	}

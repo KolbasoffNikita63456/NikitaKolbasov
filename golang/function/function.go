@@ -5,7 +5,7 @@ import (
 	"math"
 )
 
-func RunLab4Task(x, a, b float64) float64 {
+func CalculateY(x, a, b float64) float64 {
 
 	arccosArg := x*x - b*b
 	arcsinArg := x*x - a*a
@@ -23,7 +23,7 @@ func RunLab4Task(x, a, b float64) float64 {
 func Task_A(begin_x, end_x, delta_x, a, b float64) []float64 {
 	var answer_arr []float64
 	for x := begin_x; x < end_x; x += delta_x {
-		answer_arr = append(answer_arr, RunLab4Task(x, a, b))
+		answer_arr = append(answer_arr, CalculateY(x, a, b))
 	}
 	return answer_arr
 }
@@ -31,12 +31,12 @@ func Task_A(begin_x, end_x, delta_x, a, b float64) []float64 {
 func Task_B(arguments []float64, a, b float64) []float64 {
 	var answer_arr []float64
 	for _, x := range arguments {
-		answer_arr = append(answer_arr, RunLab4Task(x, a, b))
+		answer_arr = append(answer_arr, CalculateY(x, a, b))
 	}
 	return answer_arr
 }
 
-func RunLab4() {
+func RunLab4Task() {
 	fmt.Println("------------------------------------------")
 
 	fmt.Println(Task_A(0.05, 0.95, 0.15, 0.06, 0.05))

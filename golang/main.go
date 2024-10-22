@@ -7,7 +7,5 @@ import (
 )
 
 func main() {
-	fmt.Println("Kolbasov Nikita Andreevich")
-	// Задание 4
-	function.RunLab4()
+	function.RunLab4Task()
 }
