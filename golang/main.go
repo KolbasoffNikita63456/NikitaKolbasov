@@ -3,9 +3,12 @@ package main
 import (
 	"fmt"
 
-	"isuct.ru/informatics2022/function"
+	lab4 "isuct.ru/informatics2022/labs/lab4"
+	lab6 "isuct.ru/informatics2022/labs/lab6"
 )
 
 func main() {
-	function.RunLab4Task()
+	fmt.Print()
+	lab4.RunLab4Task()
+	lab6.RunLab6Task()
 }
